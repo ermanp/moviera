@@ -29,7 +29,9 @@ public class MovieraApplication implements CommandLineRunner
 
 		logger.info("#############Movie 1 -> {}",movie);
 
-		repository.save(new Movie("TestMovie_10"));
+		repository.save(new Movie("TestMovie_9"));
+
+		repository.tryEntityManagerFuncs();
 	//	repository.deleteById("1");
 	}
 }

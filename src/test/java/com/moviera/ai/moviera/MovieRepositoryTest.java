@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -31,8 +34,11 @@ public class MovieRepositoryTest
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    private EntityManager em;
+
     @Test
-    @DirtiesContext
+    @DirtiesContext //if data will change DirtiesContext annotation is used
     public void deleteById_basic(){
 
         movieRepository.deleteById("1");
@@ -46,6 +52,37 @@ public class MovieRepositoryTest
         assertEquals("TestMovie_1",movie.getMovieName());
 
         logger.info("Testing is Running");
+    }
+
+    @Test
+    @DirtiesContext
+    public void save_basic(){
+
+        //get a movie
+        Movie movie = movieRepository.findById("1");
+        assertEquals("TestMovie_1",movie.getMovieName());
+
+        //update details
+        movie.setMovieName(movie.getMovieName()+" - Updated.");
+
+        movieRepository.save(movie);
+
+        //check the value
+        Movie movie1 = movieRepository.findById("1");
+        assertEquals("TestMovie_1 - Updated.",movie1.getMovieName());
+
+    }
+
+    @Test
+    public void entityManagerFunctionalTests(){
+
+        movieRepository.tryEntityManagerFuncs();
+
+
+
+
+
+
     }
 
 

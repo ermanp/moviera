@@ -36,4 +36,50 @@ public class MovieRepository
         Movie movie = findById(id);
         em.remove(movie);
     }
+
+    public void tryEntityManagerFuncs(){
+
+        Movie movie = new Movie("Butterfly Effect");
+        em.persist(movie);
+
+        Movie movie1 = new Movie("The Godfather");
+        em.persist(movie1);
+
+        em.flush();
+
+        movie.setMovieName("Paranormal Activity");
+
+        em.detach(movie);
+
+        movie1.setMovieName("Recep Ivedik");
+
+        em.refresh(movie1);
+
+        em.flush();
+/*
+        em.detach(movie);
+*/
+
+
+
+/*
+        Movie movie = new Movie("Butterfly Effect");
+        em.persist(movie);
+        em.flush();
+  //      em.detach(movie);
+
+        movie.setMovieName("Paranotmal Activity");
+        em.flush();
+
+        Movie movie2 = new Movie("Donnie Darko");
+        em.persist(movie2);
+        em.flush();
+
+        em.clear();
+        em.detach(movie);
+        em.detach(movie2);
+        movie.setMovieName("Mr. Nobody");
+        em.flush();*/
+    }
+
 }
