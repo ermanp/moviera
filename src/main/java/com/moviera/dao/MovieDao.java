@@ -1,6 +1,7 @@
 package com.moviera.dao;
 
 import com.moviera.model.Movie;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * Date: 20.01.2019
  * Time: 21:06
  */
+@Repository
 public interface MovieDao
 {
     void addMovie(Movie movie);

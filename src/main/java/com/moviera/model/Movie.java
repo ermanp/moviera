@@ -1,5 +1,7 @@
 package com.moviera.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,12 +17,15 @@ import javax.persistence.Id;
 public class Movie
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     @Column(name = "ID")
     private String movieId;
 
     @Column(name = "MOVIE_NAME")
     private String movieName;
+
+
 
     public Movie() {}
 
@@ -47,5 +52,14 @@ public class Movie
     public void setMovieId(String movieId)
     {
         this.movieId = movieId;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Movie{" +
+                "movieId='" + movieId + '\'' +
+                ", movieName='" + movieName + '\'' +
+                '}';
     }
 }
