@@ -53,4 +53,12 @@ public class JPQLTest
         logger.info("#####Select m from Movie m -> {}",resultList);
 
     }
+
+    @Test
+    public void jpql_named_query(){
+        Query query = em.createNamedQuery("query_get_all_movies",Movie.class);
+        List resultList = query.getResultList();
+        logger.info("#####Select m from Movie m -> {}",resultList);
+
+    }
 }

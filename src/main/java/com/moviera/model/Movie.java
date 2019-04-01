@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
@@ -19,6 +20,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "T_MOVIE")
+@NamedQuery(name = "query_get_all_movies", query = "Select m from Movie m")
 public class Movie
 {
     @Id
