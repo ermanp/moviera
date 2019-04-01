@@ -51,5 +51,6 @@ public class JPQLTest
                 "where movieName like '%3%'", Movie.class);
         List resultList = query.getResultList();
         logger.info("#####Select m from Movie m -> {}",resultList);
+
     }
 }
