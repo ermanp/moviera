@@ -1,12 +1,16 @@
 package com.moviera.model;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 /**
  * User: EXT02D8158
@@ -14,6 +18,7 @@ import javax.persistence.Id;
  * Time: 17:36
  */
 @Entity
+@Table(name = "T_MOVIE")
 public class Movie
 {
     @Id
@@ -22,8 +27,14 @@ public class Movie
     @Column(name = "ID")
     private String movieId;
 
-    @Column(name = "MOVIE_NAME")
+    @Column(name = "MOVIE_NAME", nullable = false)
     private String movieName;
+
+    @UpdateTimestamp
+    private LocalDateTime lastUpdatedDate;
+
+    @CreationTimestamp
+    private LocalDateTime createdDate;
 
 
 

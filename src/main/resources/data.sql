@@ -1,9 +1,9 @@
-insert into movie(id,MOVIE_NAME) values('1','TestMovie_1');
-insert into movie(id,MOVIE_NAME) values('2','TestMovie_2');
-insert into movie(id,MOVIE_NAME) values('3','TestMovie_3');
-insert into movie(id,MOVIE_NAME) values('4','TestMovie_4');
-insert into movie(id,MOVIE_NAME) values('5','TestMovie_5');
-insert into movie(id,MOVIE_NAME) values('6','TestMovie_6');
-insert into movie(id,MOVIE_NAME) values('7','TestMovie_7');
-insert into movie(id,MOVIE_NAME) values('8','TestMovie_8');
-insert into movie(id,MOVIE_NAME) values('9','TestMovie_9');
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('1','TestMovie_1',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('2','TestMovie_2',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('3','TestMovie_3',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('4','TestMovie_4',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('5','TestMovie_5',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('6','TestMovie_6',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('7','TestMovie_7',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('8','TestMovie_8',sysdate(),sysdate());
+insert into T_MOVIE(id,MOVIE_NAME,created_date, last_updated_date) values('9','TestMovie_9',sysdate(),sysdate());
