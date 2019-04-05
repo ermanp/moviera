@@ -4,11 +4,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
@@ -30,6 +32,8 @@ public class User
     @Column(name = "USER_NAME", nullable = false)
     private String name;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Profile profile;
 
     public User() {}
 
@@ -56,6 +60,16 @@ public class User
     public void setName(String name)
     {
         this.name = name;
+    }
+
+    public Profile getProfile()
+    {
+        return profile;
+    }
+
+    public void setProfile(Profile profile)
+    {
+        this.profile = profile;
     }
 
     @Override

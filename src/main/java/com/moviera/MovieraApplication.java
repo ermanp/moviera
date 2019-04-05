@@ -2,6 +2,7 @@ package com.moviera;
 
 import com.moviera.model.Movie;
 import com.moviera.repository.MovieRepository;
+import com.moviera.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class MovieraApplication implements CommandLineRunner
 	@Autowired
 	private MovieRepository repository;
 
+	@Autowired
+	private UserRepository uRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(MovieraApplication.class, args);
 	}
@@ -25,13 +29,6 @@ public class MovieraApplication implements CommandLineRunner
 	@Override
 	public void run(String... args) throws Exception
 	{
-		Movie movie = repository.findById("1");
-
-		logger.info("#############Movie 1 -> {}",movie);
-
-		repository.save(new Movie("TestMovie_9"));
-
-		repository.tryEntityManagerFuncs();
-	//	repository.deleteById("1");
+		uRepository.saveUserWithProfile();
 	}
 }
