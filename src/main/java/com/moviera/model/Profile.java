@@ -2,11 +2,7 @@ package com.moviera.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * User: EXT02D8158
@@ -25,6 +21,9 @@ public class Profile
 
     @Column(name = "NUMBER", nullable = false)
     private String number;
+
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "profile")
+    private User user;
 
 
     public Profile() {}
@@ -52,6 +51,14 @@ public class Profile
     public void setId(String id)
     {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
