@@ -31,12 +31,29 @@ public class UserRepositoryTest
     @Autowired
     EntityManager em;
 
+    //Session & Session Factory
+    //EntityManager & Persistence Context
+    //Transaction
+
+    @Test
+//    @Transactional //As soon as you define a transaction, you're also creating something called ***** PERSISTENT CONTEXT *****
+    public void someTest(){
+        repository.dummyOperation();
+
+
+    }
+
+
+    private void someDummyOperation(){
+
+    }
+
     @Test
     @Transactional
     public void retrieveUserAndProfileDetails(){
-       User user = em.find(User.class,"2001");
-       logger.info("user -> {}",user);
-       logger.info("profile -> {}",user.getProfile());
+        User user = em.find(User.class,"2001");
+        logger.info("user -> {}",user);
+        logger.info("profile -> {}",user.getProfile());
     }
 
 }
