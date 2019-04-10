@@ -23,11 +23,14 @@ import java.time.LocalDateTime;
 @NamedQuery(name = "query_get_all_movies", query = "Select m from Movie m")
 public class Movie
 {
-    @Id
+/*    @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(name = "ID")*/
+    @Id
+    @GeneratedValue
     @Column(name = "ID")
-    private String movieId;
+    private Long movieId;
 
     @Column(name = "MOVIE_NAME", nullable = false)
     private String movieName;
@@ -57,13 +60,11 @@ public class Movie
         this.movieName = movieName;
     }
 
-    public String getMovieId()
-    {
+    public Long getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(String movieId)
-    {
+    public void setMovieId(Long movieId) {
         this.movieId = movieId;
     }
 

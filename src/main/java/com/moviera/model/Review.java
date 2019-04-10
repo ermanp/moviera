@@ -17,11 +17,14 @@ import javax.persistence.Table;
 @Table(name = "T_REVIEW")
 public class Review
 {
-    @Id
+/*    @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(name = "ID")*/
+    @Id
+    @GeneratedValue
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
     @Column(name = "RATING")
     private double rating;
@@ -38,13 +41,11 @@ public class Review
         this.description = description;
     }
 
-    public String getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 

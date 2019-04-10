@@ -1,6 +1,7 @@
 package com.moviera.ai.moviera;
 
 import com.moviera.MovieraApplication;
+import com.moviera.model.Profile;
 import com.moviera.model.User;
 import com.moviera.repository.UserRepository;
 import org.junit.Test;
@@ -34,9 +35,17 @@ public class UserRepositoryTest
     @Test
     @Transactional
     public void retrieveUserAndProfileDetails(){
-       User user = em.find(User.class,"2001");
+       User user = em.find(User.class,20001L);
        logger.info("user -> {}",user);
        logger.info("profile -> {}",user.getProfile());
+    }
+
+    @Test
+    @Transactional
+    public void retreiveProfileAndAssociatedUser(){
+        Profile profile = em.find(Profile.class,40001L);
+        logger.info("profile -> {}",profile);
+        logger.info("u -> {}", profile.getUser());
     }
 
 }

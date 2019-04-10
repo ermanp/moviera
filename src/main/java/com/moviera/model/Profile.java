@@ -13,11 +13,14 @@ import javax.persistence.*;
 @Table(name = "T_PROFILE")
 public class Profile
 {
-    @Id
+/*    @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(name = "ID")*/
+    @Id
+    @GeneratedValue
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
     @Column(name = "NUMBER", nullable = false)
     private String number;
@@ -43,13 +46,11 @@ public class Profile
         this.number = number;
     }
 
-    public String getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -29,6 +29,6 @@ public class MovieraApplication implements CommandLineRunner
 	@Override
 	public void run(String... args) throws Exception
 	{
-		uRepository.saveUserWithProfile();
+		//uRepository.saveUserWithProfile();
 	}
 }

@@ -24,11 +24,14 @@ import java.time.LocalDateTime;
 @Table(name = "T_USER")
 public class User
 {
-    @Id
+/*    @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(name = "ID")*/
+    @Id
+    @GeneratedValue
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
     @Column(name = "USER_NAME", nullable = false)
     private String name;
@@ -43,13 +46,11 @@ public class User
         this.name = name;
     }
 
-    public String getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
