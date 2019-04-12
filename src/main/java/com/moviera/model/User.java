@@ -4,16 +4,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: EXT02D8158
@@ -38,6 +32,11 @@ public class User
 
     @OneToOne(fetch = FetchType.LAZY)
     private Profile profile;
+
+    @ManyToMany
+    @JoinTable(name = "T_USER_MOVIE", joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "MOVIE_ID"))
+    private List<Movie> movies = new ArrayList<>();
 
     public User() {}
 
@@ -72,6 +71,18 @@ public class User
     public void setProfile(Profile profile)
     {
         this.profile = profile;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void addMovie(Movie movie) {
+        this.movies.add(movie);
+    }
+
+    public void removeMovie(Movie movie) {
+        this.movies.remove(movie);
     }
 
     @Override

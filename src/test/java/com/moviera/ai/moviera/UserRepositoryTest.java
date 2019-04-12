@@ -48,4 +48,13 @@ public class UserRepositoryTest
         logger.info("u -> {}", profile.getUser());
     }
 
+    @Test
+    @Transactional
+    public void retreiveUserAndAssociatedMovie(){
+       User user = em.find(User.class, 20002L);
+
+        logger.info("user -> {}", user);
+        logger.info("movie -> {}", user.getMovies());
+    }
+
 }

@@ -40,6 +40,9 @@ public class Movie
     @OneToMany(mappedBy = "movie")
     private List<Review> reviews = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "movies")
+    private List<User> users = new ArrayList<>();
+
     public Movie() {}
 
     public Movie(String movieName)
@@ -75,6 +78,18 @@ public class Movie
 
     public void setMovieId(Long movieId) {
         this.movieId = movieId;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
+    }
+
+    public void removeUser(User user) {
+        this.users.remove(user);
     }
 
     @Override

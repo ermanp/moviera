@@ -32,3 +32,12 @@ insert into T_REVIEW(id, RATING, DESCRIPTION,movie_id)
 values(50003,3,'Cool',10005);
 insert into T_REVIEW(id, RATING, DESCRIPTION,movie_id)
 values(50004,2,'Cool',10005);
+
+INSERT INTO T_USER_MOVIE(user_id,movie_id)
+values(20001,10001);
+INSERT INTO T_USER_MOVIE(user_id,movie_id)
+values(20002,10001);
+INSERT INTO T_USER_MOVIE(user_id,movie_id)
+values(20003,10002);
+INSERT INTO T_USER_MOVIE(user_id,movie_id)
+values(20003,10004);
