@@ -1,11 +1,13 @@
 package com.moviera.repository;
 
 import com.moviera.model.Movie;
+import com.moviera.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 /**
  * User: Erman PAYASLI
@@ -19,7 +21,7 @@ public class MovieRepository
     @Autowired
     EntityManager em;
 
-    public Movie findById(String id){
+    public Movie findById(Long id){
         return em.find(Movie.class, id);
     }
 
@@ -32,7 +34,7 @@ public class MovieRepository
         return movie;
     }
 
-    public void deleteById(String id){
+    public void deleteById(Long id){
         Movie movie = findById(id);
         em.remove(movie);
     }
@@ -82,4 +84,36 @@ public class MovieRepository
         em.flush();*/
     }
 
+    public void addReviewsForMovie() {
+        //get the course 10005
+        Movie movie = findById(10005L);
+
+        //add 2 reviews to it
+        Review review = new Review(3.5,"Average");
+        Review review2 = new Review(5.0,"Sick!!");
+
+        movie.addReviews(review);
+        movie.addReviews(review2);
+
+        review.setMovie(movie);
+        review2.setMovie(movie);
+        //save it to db
+
+        em.persist(review);
+        em.persist(review2);
+
+    }
+
+    public void addReviewsForMovie(Long movieId, List<Review> reviews) {
+        //get the course 10005
+        Movie movie = findById(movieId);
+
+       for (Review review : reviews){
+
+           movie.addReviews(review);
+           review.setMovie(movie);
+           em.persist(review);
+       }
+
+    }
 }

@@ -2,11 +2,7 @@ package com.moviera.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * User: EXT02D8158
@@ -32,6 +28,8 @@ public class Review
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
+    @ManyToOne
+    private Movie movie;
 
     public Review() {}
 
@@ -67,6 +65,14 @@ public class Review
     public void setRating(double rating)
     {
         this.rating = rating;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 
     @Override

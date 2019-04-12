@@ -24,11 +24,11 @@ insert into T_USER(id, USER_NAME,PROFILE_ID)
 values(20003,'Selman',40003);
 
 
-insert into T_REVIEW(id, RATING, DESCRIPTION)
-values(50001,5,'Cool');
-insert into T_REVIEW(id, RATING, DESCRIPTION)
-values(50002,4,'Cool');
-insert into T_REVIEW(id, RATING, DESCRIPTION)
-values(50003,3,'Cool');
-insert into T_REVIEW(id, RATING, DESCRIPTION)
-values(50004,2,'Cool');
+insert into T_REVIEW(id, RATING, DESCRIPTION,movie_id)
+values(50001,5,'Cool',10001);
+insert into T_REVIEW(id, RATING, DESCRIPTION,movie_id)
+values(50002,4,'Cool',10001);
+insert into T_REVIEW(id, RATING, DESCRIPTION,movie_id)
+values(50003,3,'Cool',10005);
+insert into T_REVIEW(id, RATING, DESCRIPTION,movie_id)
+values(50004,2,'Cool',10005);
